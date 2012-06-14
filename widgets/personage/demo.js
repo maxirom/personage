@@ -26,6 +26,14 @@ $ (function ()  {
     ];
 	var content = $('article');
     var myVIE = window.myVIE = new VIE();
+   
+    myVIE.loadSchema("http://www.dfki.de/~romanell/ma.json", 
+   {
+     baseNS : "http://www.w3.org/ns/ma-ont/",
+     succes : function () {console.log("success");},
+     error  : function (msg) {console.warn(msg);}
+   });
+   
     myVIE.use(new myVIE.StanbolService, 'stanbol');
     myVIE
 	.analyze({

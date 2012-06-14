@@ -32,7 +32,9 @@
 						fragment_id = '<' + fragment_id + '>';
                         var draggable = ui.draggable;
                         var draggable_about = $(draggable).attr('about');
-						draggable_about = (draggable_about && !window.VIE.Util.isUri(draggable_about))? '<' + draggable_about + '>': draggable_about;
+                        draggable_about = (draggable_about && !window.VIE.Util.isUri(draggable_about))? '<' + draggable_about + '>': draggable_about;
+
+ 
                         var tag_text = $(draggable).text();
                         var destination = $('[tid="' + tid + '"] > .f_tag_caption > span');
                         $('[tid="' + tid + '"] > .f_tag_caption > span')
@@ -45,6 +47,11 @@
                         if(mediaEntity){
                             mediaEntity.setOrAdd('schema:about',draggable_about);
                         }
+                        $('#tag_container').append(personEntity.getSubjectUri());
+                        $('#tag_container').append('  <--->  ');
+                        var attr = personEntity.get('<http://viejs.org/ns/annotatedIMG>');
+                        $('#tag_container').append('  <--->  ');
+                        $('#tag_container').append(mediaEntity.getSubjectUri());
                     }
                 });
 				$(this).hover(
