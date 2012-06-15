@@ -177,6 +177,7 @@
 			v.entities.add({'@type': '<http://schema.org/ImageObject>', '@subject': imageSubject});
 			imageEntity = v.entities.get(imageSubject);
 		}
+		var results = [];
         for(var t in tags){
             var tag = tags[t];
             var tid = tag.tid;
@@ -191,6 +192,7 @@
                 v.entities.add({'@type':type, '@subject': fragment_subject});    
             }
             var mediaEntity = myVIE.entities.get(fragment_subject);
+			results.push(mediaEntity);
             if(mediaEntity){
                 mediaEntity.setOrAdd('schema:height',h);
                 mediaEntity.setOrAdd('schema:width',w);
@@ -205,6 +207,7 @@
 				self.renderTag(mediaEntity, parentEl);
             }
         }
+		self.options.done(results);
     },
 	
 	parseFragmentId: function(element){
@@ -221,7 +224,8 @@
     options: {
        FACE_API_KEY: undefined,
 	   FACE_API_SECRET: undefined,
-       myVIE: undefined
+       myVIE: undefined,
+	   done: function(entities){}
     }
     });
 })(jQuery);

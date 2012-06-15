@@ -83,11 +83,35 @@
 				</br>
 			</article>
 			<div id="widgets">
-				<button id="start" onclick="startAnnotation()">Start image annotation</button>
-				<div id="photos">
-					<img id="sample_img" src="./600px-The_Fabs.JPG"/>
-				</div>
-				<div id="tag_container">
+				<table>
+					<tr>
+						<td>
+							<div id="image_annotation">
+								<button id="start" onclick="startAnnotation()">Start image annotation</button>
+								<div id="photos">
+									<img id="sample_img" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/df/The_Fabs.JPG/600px-The_Fabs.JPG"/>
+								</div>
+							</div>
+						</td>
+						<td>				
+							<table id="results">
+								<tr>
+									<td>
+										<div id="persons">
+											<h3>Person</h3>
+										</div>
+									</td>
+									<td>
+										<div id="fragments">
+											<h3>ImageObject</h3>
+										</div>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				<table>
+			<div id="tag_container">
 					<div class="relation_tags">
 						<h3></h3>
 					</div>				
